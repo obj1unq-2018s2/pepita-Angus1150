@@ -10,8 +10,12 @@ object pepita {
 	method volar(kms) { energia -= kms + 10 }
 	
 	// metodos nuevos
-	method estaDebil() { return true }  // implementar
-	method estaFeliz() { return true }  // implementar
+	method estaDebil() { 
+		return energia<50
+	}		 
+	method estaFeliz() {
+		return energia>=500 && energia<=1000
+	} 
 	
 	method cuantoQuiereVolar() { 
 		var cuanto = self.energia() / 5
@@ -21,20 +25,19 @@ object pepita {
 	}
 	
 	method salirAComer() {
-		self.volar(5)		// "self" es una referencia al objeto que recibe el mensaje
-		// ... completar este metodo con las otra acciones sobre self
+		self.volar(5)		
+		self.comer(alpiste,80)
+		self.volar(5)
 	}
 	
 	method haceLoQueQuieras() { 
 		if (self.estaDebil()) {
-			// completar
-		} 
-		// completar el método, de acuerdo a la estructura
-		// que se deja comentada aca abajo
-//		else if (... otra condicion ...) {
-//			
-//		} else {
-//			
-//		}
+			self.comer(alpiste,20)
+		} else if(self.estaFeliz()){
+			self.volar(8)
+		}else{
+			
+		}
+	
 	}
 }
